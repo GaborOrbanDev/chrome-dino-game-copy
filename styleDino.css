@@ -1,0 +1,123 @@
+:root{
+    --runSpeed: 1.9s;
+    --jumpSpeed: .3s;
+    --jumpHeight: 95px;
+    --fontFamily: 'Press Start 2P', cursive;
+    --fontColor: #535353;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.canvas{
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 600px;
+    height: auto;    
+}
+
+.counters{
+    display: grid;
+    grid-template-columns: 7fr 1fr 1fr;
+    gap: 10px;
+}
+.counters > p {
+    text-align: right;
+    font-family: var(--fontFamily);
+    font-size: 0.75rem;
+    color: var(--fontColor);
+}
+.record, .actualScore{
+    text-align: center !important;
+}
+.actualScore{
+    padding-right: 10px;
+}
+
+
+.placeToMove{
+    /* border: orange solid 2px; */
+
+    border-bottom: 2px solid var(--fontColor);
+    position: relative;
+    height: 200px;
+    overflow: hidden;
+}
+
+.gameOverZone{
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    display: none;
+}
+.gameOverZone p {
+    font-family: var(--fontFamily);
+    font-size: 1rem;
+    color: var(--fontColor);
+    text-align: center;
+    letter-spacing: 5px;
+    padding-bottom: 10px;
+}
+.gameOverZone div{
+    cursor: pointer;
+    width: 72px;
+    height: 64px;
+    background-image: url('./pics/restart.png');
+}
+
+.dino{
+    /* outline: 3px solid lawngreen; */
+
+    width: 40px;
+    height: 43px;
+    background-image: url('./pics/mind2.png');
+    position: absolute;
+    z-index: 1;
+    bottom: 0px;
+    left: 20px;
+    transition: bottom var(--jumpSpeed) ease-in;
+}
+
+.jump{
+    bottom: var(--jumpHeight) !important;
+    transition: bottom var(--jumpSpeed) ease-out;
+}
+
+.sensors{
+    width: inherit;
+    height: inherit;
+    position: relative;
+}
+.sensor, .sensorCac{
+    position: absolute;
+    background-color: yellow;
+    opacity: 0;
+}
+
+.cactus{
+    /* border: 2px dashed lightgreen; */
+
+    background-size: cover;
+    position: absolute;
+    bottom: 0;
+    animation: cactusMove var(--runSpeed) linear forwards;
+
+    -webkit-transform: translate3d(0,0,0); 
+    /*Ez az attribútum a cactuszok vibrálása miatt kell, lásd bővebben a problémát az interneten: div background image flickers
+    Megoldás forrása: https://www.thecodeteacher.com/question/109384/Fixed-attachment-background-image-flicker/disappear-in-chrome-when-coupled-with-a-css-transform  --- 2. bejegyzés*/
+}
+
+@keyframes cactusMove {
+    from{
+        right: -100px;
+    }
+    to{
+        right: 100%;
+    }
+}

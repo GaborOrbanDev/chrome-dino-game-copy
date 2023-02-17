@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dinó Játék</title>
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styleDino.css">
+    <script src="appDino.js" defer></script>
+</head>
+<body>
+    <section class="canvas">
+        <div class="counters">
+            <p class="text">HI</p>
+            <p class="record">00000</p>
+            <p class="actualScore">00000</p>
+        </div>
+        <div class="placeToMove">
+            <div class="gameOverZone" align="center">
+                <p>Game Over</p>
+                <div onclick="Start()"></div>
+            </div>
+            <div class="dino">
+                <div class="sensors">
+                    <div class="sensor" style="width: 2px; height:10px;right: 0; top: 2px;"></div>
+                    <div class="sensor" style="width: 2px; height: 15px; right: 12px; top: 15px;"></div>
+                    <div class="sensor" style=" width: 14px; height: 10px; bottom: 0; left: 10px"></div>
+                    <div class="sensor" style="width: 4px; height: 4px; left: 5px; top: 27px"></div>
+                    <div class="sensor" style="width: 4px; height: 4px; left: 2px; top: 25px"></div>
+                    <div class="sensor" style="width: 4px; height: 4px; left: 0px; top: 23px"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+</body>
+</html>
